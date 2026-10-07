@@ -50,8 +50,8 @@ jobs:
         wget -q $base/Godot_v${GODOT_VERSION}_export_templates.tpz -O templates.tpz
         mkdir -p /tmp/tpl && unzip -q templates.tpz -d /tmp/tpl
         for F in /tmp/tpl/templates/*; do
-          mkdir -p ~/.local/share/godot/export_templates/4.4.1.stable
-          cp "$F"   ~/.local/share/godot/export_templates/4.4.1.stable/
+          mkdir -p ~/.local/share/godot/export_templates/4.7.2.stable
+          cp "$F"   ~/.local/share/godot/export_templates/4.7.2.stable/
         done
 
     # — export HTML5 —
