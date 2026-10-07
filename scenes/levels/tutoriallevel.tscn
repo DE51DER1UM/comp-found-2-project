@@ -1,0 +1,95 @@
+[gd_scene format=4 uid="uid://foifyr575bfe"]
+
+[ext_resource type="PackedScene" uid="uid://1o8wgvaqkxr0" path="res://scenes/ui/pause_menu.tscn" id="1_hrhni"]
+[ext_resource type="PackedScene" uid="uid://v6l7bnlgq3af" path="res://scenes/ui/ui.tscn" id="2_hmevx"]
+[ext_resource type="PackedScene" uid="uid://bj0efo0t5y8co" path="res://scenes/bgs/bg_day.tscn" id="3_hrhni"]
+[ext_resource type="PackedScene" uid="uid://b77pe7v6gkbm4" path="res://scenes/player/player.tscn" id="4_ioq8v"]
+[ext_resource type="PackedScene" uid="uid://chqu633fbjtjr" path="res://scenes/levels/platforms1.tscn" id="5_1km3h"]
+[ext_resource type="PackedScene" uid="uid://ckem6fd41nokn" path="res://scenes/entities/coin.tscn" id="6_v1ecx"]
+[ext_resource type="FontFile" uid="uid://bvc6otpperr37" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="7_hmevx"]
+
+[node name="TutorialLevel" type="Node2D" unique_id=56017406]
+process_mode = 1
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=992055053]
+layer = 0
+
+[node name="PauseMenu" parent="CanvasLayer2" unique_id=1468272460 instance=ExtResource("1_hrhni")]
+process_mode = 3
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=485401578]
+follow_viewport_enabled = true
+
+[node name="UI" parent="CanvasLayer" unique_id=1650908395 instance=ExtResource("2_hmevx")]
+position = Vector2(144, 397)
+
+[node name="Bg2" parent="CanvasLayer" unique_id=2023355961 instance=ExtResource("3_hrhni")]
+scale = Vector2(2.3, 2.3)
+transform = Transform2D(2.3, 0, 0, 2.3, 0, 0)
+
+[node name="Player" parent="." unique_id=1754025446 instance=ExtResource("4_ioq8v")]
+position = Vector2(144, 397)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=567322777]
+remote_path = NodePath("../../Camera2D")
+
+[node name="TileMapLayer" parent="." unique_id=622163285 instance=ExtResource("5_1km3h")]
+tile_map_data = PackedByteArray("AAAAAA8AAAACAAAAAAABAA8AAAADAAAAAAACAA8AAAAEAAAAAAADAA8AAAADAAAAAAAEAA8AAAADAAAAAAAFAA8AAAADAAAAAAAGAA8AAAAEAAAAAAAHAA8AAAADAAAAAAAIAA8AAAADAAAAAAAJAA8AAAADAAAAAAAKAA8AAAADAAAAAAALAA8AAAADAAAAAAAMAA8AAAADAAAAAAANAA8AAAADAAAAAAAOAA8AAAADAAAAAAAPAA8AAAADAAAAAAAQAA8AAAADAAAAAAARAA8AAAADAAAAAAASAA8AAAADAAAAAAATAA8AAAADAAAAAAAUAA8AAAADAAAAAAAVAA8AAAADAAAAAAAWAA8AAAADAAAAAAAXAA8AAAADAAAAAAAYAA8AAAADAAAAAAAZAA8AAAADAAAAAAAaAA8AAAADAAAAAAAbAA8AAAADAAAAAAAcAA8AAAADAAAAAAAdAA8AAAADAAAAAAAeAA8AAAADAAAAAAAfAA8AAAADAAAAAAAgAA8AAAADAAAAAAAhAA8AAAAEAAAAAAAiAA8AAAAEAAAAAAAjAA8AAAAEAAAAAAAkAA8AAAAEAAAAAAAlAA8AAAAEAAAAAAAmAA8AAAAEAAAAAAAnAA8AAAAEAAAAAAAoAA8AAAAFAAAAAAAYAA0AAAAAAAAAAAAZAA0AAAADAAAAAAAaAA0AAAADAAAAAAAbAA0AAAAFAAAAAAAdAAsAAAAAAAAAAAAeAAsAAAADAAAAAAAfAAsAAAADAAAAAAAgAAsAAAAFAAAAAAAjAAkAAAAAAAAAAAAkAAkAAAADAAAAAAAlAAkAAAADAAAAAAAmAAkAAAAFAAAAAAApAAcAAAAAAAAAAAAqAAcAAAADAAAAAAArAAcAAAADAAAAAAAsAAcAAAAFAAAAAAAxAAcAAAADAAAAAAAyAAcAAAADAAAAAAAzAAcAAAAFAAAAAAA4AAcAAAADAAAAAAA5AAcAAAADAAAAAAA6AAcAAAAFAAAAAAAwAAcAAAAAAAAAAAA3AAcAAAAAAAAAAABCAAcAAAAAAAAAAABDAAcAAAADAAAAAABEAAcAAAADAAAAAABFAAcAAAAFAAAAAABOAAcAAAAAAAAAAABPAAcAAAADAAAAAABQAAcAAAADAAAAAABRAAcAAAAFAAAAAABZAAsAAAAAAAAAAABaAAsAAAADAAAAAABbAAsAAAADAAAAAABcAAsAAAADAAAAAABdAAsAAAADAAAAAABeAAsAAAADAAAAAABfAAsAAAADAAAAAABgAAsAAAADAAAAAABhAAsAAAADAAAAAABiAAsAAAADAAAAAABjAAsAAAADAAAAAABkAAsAAAAFAAAAAAA=")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1735987190]
+position = Vector2(144, 397)
+limit_left = 0
+limit_top = -200
+limit_right = 5376
+limit_bottom = 2000
+
+[node name="Coin" parent="." unique_id=964988011 instance=ExtResource("6_v1ecx")]
+position = Vector2(4776, 496)
+
+[node name="Move Directions" type="Label" parent="." unique_id=288857025]
+z_index = -2
+offset_left = 232.0
+offset_top = 576.0
+offset_right = 945.0
+offset_bottom = 632.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.68235296)
+theme_override_fonts/font = ExtResource("7_hmevx")
+theme_override_font_sizes/font_size = 30
+text = "WASD or Arrow Keys to move"
+
+[node name="Jump Directions" type="Label" parent="." unique_id=851672244]
+z_index = -2
+offset_left = 1136.0
+offset_top = 416.0
+offset_right = 1586.0
+offset_bottom = 472.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.45882353)
+theme_override_fonts/font = ExtResource("7_hmevx")
+theme_override_font_sizes/font_size = 30
+text = "Spacebar to jump"
+
+[node name="Dash Directions" type="Label" parent="." unique_id=519567443]
+z_index = -2
+offset_left = 2760.0
+offset_top = 248.0
+offset_right = 3101.0
+offset_bottom = 304.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.45882353)
+theme_override_fonts/font = ExtResource("7_hmevx")
+theme_override_font_sizes/font_size = 30
+text = "Shift to dash"
+
+[node name="Coin Directions" type="Label" parent="." unique_id=1396643631]
+z_index = -2
+offset_left = 4288.0
+offset_top = 240.0
+offset_right = 4856.0
+offset_bottom = 441.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.45882353)
+theme_override_fonts/font = ExtResource("7_hmevx")
+theme_override_font_sizes/font_size = 30
+text = "Touch the coin to go to the next level
+
+Go as fast as possible!"
+horizontal_alignment = 1
+autowrap_mode = 2

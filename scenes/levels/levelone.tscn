@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bfgwivrg55u6b"]
+[gd_scene format=3 uid="uid://bfgwivrg55u6b"]
 
 [ext_resource type="PackedScene" uid="uid://t4jtwrr5hw1g" path="res://scenes/bgs/bg_dawn.tscn" id="1_2k6bb"]
 [ext_resource type="PackedScene" uid="uid://b77pe7v6gkbm4" path="res://scenes/player/player.tscn" id="2_f8ku7"]
@@ -7,39 +7,39 @@
 [ext_resource type="PackedScene" uid="uid://1o8wgvaqkxr0" path="res://scenes/ui/pause_menu.tscn" id="6_pfvuv"]
 [ext_resource type="PackedScene" uid="uid://ckem6fd41nokn" path="res://scenes/entities/coin.tscn" id="7_ea8ly"]
 
-[node name="LevelOne" type="Node2D"]
+[node name="LevelOne" type="Node2D" unique_id=2089916715]
 process_mode = 1
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=782435023]
 layer = 0
 
-[node name="PauseMenu" parent="CanvasLayer2" instance=ExtResource("6_pfvuv")]
+[node name="PauseMenu" parent="CanvasLayer2" unique_id=1529958661 instance=ExtResource("6_pfvuv")]
 process_mode = 3
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=87761033]
 follow_viewport_enabled = true
 
-[node name="UI" parent="CanvasLayer" instance=ExtResource("5_j3iqt")]
+[node name="UI" parent="CanvasLayer" unique_id=1095797750 instance=ExtResource("5_j3iqt")]
 position = Vector2(144, 397)
 
-[node name="Bg1" parent="CanvasLayer" instance=ExtResource("1_2k6bb")]
+[node name="Bg1" parent="CanvasLayer" unique_id=893000896 instance=ExtResource("1_2k6bb")]
 scale = Vector2(2.3, 2.3)
 transform = Transform2D(2.3, 0, 0, 2.3, 0, 0)
 
-[node name="Player" parent="." instance=ExtResource("2_f8ku7")]
+[node name="Player" parent="." unique_id=1523383382 instance=ExtResource("2_f8ku7")]
 position = Vector2(144, 397)
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=1103023327]
 remote_path = NodePath("../../Camera2D")
 
-[node name="TileMapLayer" parent="." instance=ExtResource("3_0eyim")]
+[node name="TileMapLayer" parent="." unique_id=2065045800 instance=ExtResource("3_0eyim")]
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2077872341]
 position = Vector2(144, 397)
 limit_left = 0
 limit_top = -200
 limit_right = 5376
 limit_bottom = 2000
 
-[node name="Coin" parent="." instance=ExtResource("7_ea8ly")]
+[node name="Coin" parent="." unique_id=1798604706 instance=ExtResource("7_ea8ly")]
 position = Vector2(5184, 544)
