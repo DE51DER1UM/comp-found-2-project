@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://cgp2ivi2vount"]
+
+[ext_resource type="Texture2D" uid="uid://dnwsh76tbtyqj" path="res://assets/Clouds/Clouds Sunset/1.png" id="1_26u1u"]
+[ext_resource type="Texture2D" uid="uid://bx4c3kdgvtw47" path="res://assets/Clouds/Clouds Sunset/2.png" id="2_qrnb2"]
+[ext_resource type="Texture2D" uid="uid://4xcs8kbud7uw" path="res://assets/Clouds/Clouds Sunset/3.png" id="3_ifj4w"]
+[ext_resource type="Texture2D" uid="uid://7a0uwo2pxati" path="res://assets/Clouds/Clouds Sunset/4.png" id="4_k6fsx"]
+[ext_resource type="Texture2D" uid="uid://b663glc3enu34" path="res://assets/Clouds/Clouds Sunset/5.png" id="5_di5xo"]
+[ext_resource type="Texture2D" uid="uid://dbh7fdp4a45o2" path="res://assets/Clouds/Clouds Sunset/6.png" id="6_k53hm"]
+
+[node name="Bg" type="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_26u1u")
+centered = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.1, 0)
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+texture = ExtResource("2_qrnb2")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.2, 0)
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
+texture = ExtResource("3_ifj4w")
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.3, 0)
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer3"]
+texture = ExtResource("4_k6fsx")
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.3, 0)
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer4"]
+texture = ExtResource("5_di5xo")
+centered = false
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.3, 0)
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer5"]
+texture = ExtResource("6_k53hm")
+centered = false

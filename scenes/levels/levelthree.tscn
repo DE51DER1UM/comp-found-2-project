@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://dpcxweqkcqs77"]
+
+[ext_resource type="PackedScene" uid="uid://cgp2ivi2vount" path="res://scenes/bgs/bg_sunset.tscn" id="1_2aspm"]
+[ext_resource type="PackedScene" uid="uid://b77pe7v6gkbm4" path="res://scenes/player/player.tscn" id="2_cgjiu"]
+[ext_resource type="PackedScene" uid="uid://1o8wgvaqkxr0" path="res://scenes/ui/pause_menu.tscn" id="4_w4axs"]
+[ext_resource type="PackedScene" uid="uid://v6l7bnlgq3af" path="res://scenes/ui/ui.tscn" id="5_xriye"]
+[ext_resource type="PackedScene" uid="uid://svtcdrw06lis" path="res://scenes/levels/platforms3.tscn" id="6_5mdac"]
+[ext_resource type="PackedScene" uid="uid://ckem6fd41nokn" path="res://scenes/entities/coin.tscn" id="7_73ysh"]
+
+[node name="LevelTwo" type="Node2D"]
+process_mode = 1
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="PauseMenu" parent="CanvasLayer2" instance=ExtResource("4_w4axs")]
+process_mode = 3
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="Bg" parent="CanvasLayer" instance=ExtResource("1_2aspm")]
+scale = Vector2(2.3, 2.3)
+transform = Transform2D(2.3, 0, 0, 2.3, 0, 0)
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("5_xriye")]
+position = Vector2(144, 397)
+
+[node name="Player" parent="." instance=ExtResource("2_cgjiu")]
+position = Vector2(144, 397)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(144, 397)
+limit_left = 0
+limit_top = -200
+limit_right = 5376
+limit_bottom = 2000
+
+[node name="Platforms3" parent="." instance=ExtResource("6_5mdac")]
+
+[node name="Coin" parent="." instance=ExtResource("7_73ysh")]
+position = Vector2(2680, 1264)

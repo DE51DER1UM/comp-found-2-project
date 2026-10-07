@@ -1,0 +1,72 @@
+[gd_scene load_steps=5 format=3 uid="uid://dblbokn1d8jib"]
+
+[ext_resource type="FontFile" uid="uid://bvc6otpperr37" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_rn38w"]
+[ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_ycckm"]
+[ext_resource type="FontFile" uid="uid://bnuiiolfdri1e" path="res://assets/fonts/PixelOperator8.ttf" id="2_0jp3e"]
+[ext_resource type="PackedScene" uid="uid://bj0efo0t5y8co" path="res://scenes/bgs/bg_day.tscn" id="4_xw2ba"]
+
+[node name="MainMenu" type="Node"]
+script = ExtResource("1_ycckm")
+
+[node name="TitleLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -370.0
+offset_top = -160.0
+offset_right = 370.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.133333, 0.615686, 0.94902, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_rn38w")
+theme_override_font_sizes/font_size = 100
+text = "COOL TITLE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -107.0
+offset_top = 40.0
+offset_right = 107.0
+offset_bottom = 99.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_0jp3e")
+theme_override_font_sizes/font_size = 80
+text = "Start"
+
+[node name="QuitButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -129.0
+offset_top = 190.0
+offset_right = 129.0
+offset_bottom = 278.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_0jp3e")
+theme_override_font_sizes/font_size = 80
+text = "Quit"
+
+[node name="Bg1" parent="." instance=ExtResource("4_xw2ba")]
+scale = Vector2(2.3, 2.3)
+transform = Transform2D(2.3, 0, 0, 2.3, 0, 0)
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpgohrjsrmoka"]
+
+[ext_resource type="Script" path="res://scenes/ui/game_over.gd" id="1_2fqs1"]
+[ext_resource type="FontFile" uid="uid://bvc6otpperr37" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_cmobo"]
+[ext_resource type="FontFile" uid="uid://bnuiiolfdri1e" path="res://assets/fonts/PixelOperator8.ttf" id="2_ckhug"]
+[ext_resource type="PackedScene" uid="uid://qp4c3w35psa" path="res://scenes/bgs/bg_midnight.tscn" id="4_tx7tn"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_2fqs1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 281.0
+offset_top = 181.0
+offset_right = 799.0
+offset_bottom = 539.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 60
+
+[node name="GameOverLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_cmobo")
+theme_override_font_sizes/font_size = 60
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartLevelButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ckhug")
+theme_override_font_sizes/font_size = 30
+text = "Restart Level"
+
+[node name="RestartRunButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ckhug")
+theme_override_font_sizes/font_size = 30
+text = "Restart Run"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ckhug")
+theme_override_font_sizes/font_size = 30
+text = "Quit to Main Menu
+"
+
+[node name="Bg1" parent="." instance=ExtResource("4_tx7tn")]
+scale = Vector2(2.3, 2.3)
+transform = Transform2D(2.3, 0, 0, 2.3, 0, 0)
+
+[connection signal="pressed" from="VBoxContainer/RestartLevelButton" to="." method="_on_restart_level_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/RestartRunButton" to="." method="_on_restart_run_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

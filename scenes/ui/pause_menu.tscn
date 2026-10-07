@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://1o8wgvaqkxr0"]
+
+[ext_resource type="Script" path="res://scenes/ui/pause_menu.gd" id="1_m2811"]
+[ext_resource type="FontFile" uid="uid://bvc6otpperr37" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_f6wnv"]
+[ext_resource type="FontFile" uid="uid://bnuiiolfdri1e" path="res://assets/fonts/PixelOperator8.ttf" id="3_pvg0v"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m2811")
+
+[node name="Panel" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0.4)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 80
+alignment = 1
+
+[node name="Paused" type="Label" parent="Panel/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_f6wnv")
+theme_override_font_sizes/font_size = 80
+text = "Paused"
+
+[node name="Resume" type="Button" parent="Panel/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_pvg0v")
+theme_override_font_sizes/font_size = 50
+text = "Resume"
+
+[node name="Quit" type="Button" parent="Panel/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_pvg0v")
+theme_override_font_sizes/font_size = 50
+text = "Main Menu"
+
+[connection signal="pressed" from="Panel/CenterContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Panel/CenterContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

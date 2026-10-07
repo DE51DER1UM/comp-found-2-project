@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://lq5wpvksic7w"]
+
+[ext_resource type="Script" path="res://scenes/ui/game_end.gd" id="1_6rrlg"]
+[ext_resource type="FontFile" uid="uid://bvc6otpperr37" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_fuqgx"]
+[ext_resource type="FontFile" uid="uid://bnuiiolfdri1e" path="res://assets/fonts/PixelOperator8.ttf" id="2_s8n2k"]
+[ext_resource type="PackedScene" uid="uid://c5bwix1aswwie" path="res://scenes/bgs/bg_night.tscn" id="4_s33ud"]
+
+[node name="GameEnd" type="Node2D"]
+script = ExtResource("1_6rrlg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 540.0
+offset_top = 360.0
+offset_right = 540.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 80
+
+[node name="SuccessLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_fuqgx")
+theme_override_font_sizes/font_size = 60
+text = "Run Success"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_s8n2k")
+theme_override_font_sizes/font_size = 40
+text = "Score: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartRunButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_s8n2k")
+theme_override_font_sizes/font_size = 30
+text = "Restart Run"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_s8n2k")
+theme_override_font_sizes/font_size = 30
+text = "Quit to Main Menu"
+
+[node name="Bg1" parent="." instance=ExtResource("4_s33ud")]
+scale = Vector2(2.3, 2.3)
+transform = Transform2D(2.3, 0, 0, 2.3, 0, 0)
+
+[connection signal="pressed" from="VBoxContainer/RestartRunButton" to="." method="_on_restart_run_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

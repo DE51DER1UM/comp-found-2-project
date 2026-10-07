@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://cb0x3k343gb10"]
+
+[ext_resource type="AudioStream" uid="uid://cdayrhr7h7ll6" path="res://assets/sounds/jump.wav" id="1_i0flq"]
+[ext_resource type="AudioStream" uid="uid://cbws272qbcg6x" path="res://assets/sounds/coin.wav" id="2_325ro"]
+[ext_resource type="AudioStream" uid="uid://cvl2ly335iand" path="res://assets/sounds/tap.wav" id="3_vgn4i"]
+[ext_resource type="AudioStream" uid="uid://boim0k4g1tj2v" path="res://assets/sounds/power_up.wav" id="4_oica2"]
+[ext_resource type="AudioStream" uid="uid://pwbe3piwfyxu" path="res://assets/sounds/hurt.wav" id="5_y8gw8"]
+
+[sub_resource type="GDScript" id="GDScript_lnwqi"]
+script/source = "extends Node
+
+@onready var jump = $jump
+@onready var coin = $coin
+@onready var button_click = $button_click
+@onready var dash = $dash
+@onready var death = $death
+
+func _ready() -> void:
+	pass
+
+func play_sound(key):
+	var sound = get(key)
+	if sound is AudioStreamPlayer:
+		sound.play()
+"
+
+[node name="SoundManager" type="Node"]
+script = SubResource("GDScript_lnwqi")
+
+[node name="jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_i0flq")
+volume_db = -5.0
+
+[node name="coin" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_325ro")
+volume_db = -5.0
+
+[node name="button_click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_vgn4i")
+volume_db = -5.0
+
+[node name="dash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_oica2")
+volume_db = -5.0
+
+[node name="death" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_y8gw8")
+volume_db = -5.0
